@@ -8,16 +8,15 @@
   --accent: #e7e9fc;
   --pressed-state: #404bbf;
   --footer-social-hover: #31d0aa;
-  --hero-background: linear-gradient(#2e2f42b2, #2e2f42b2);
+  --hero-gradient: linear-gradient(#2e2f42b2, #2e2f42b2);
   --subtle-text: #8e8f99;
   --total-white: #ffffff;
   --modal-overlay: rgba(46, 47, 66, 0.4);
   --order-button-shadow: rgba(0, 0, 0, 0.15);
-  --team-box-shadows: rgba(46, 47, 66, 0.08);
-  --team-box-shadow: rgba(46, 47, 66, 0.16);
-  --filter-shadow: rgba(0, 0, 0, 0.1);
-  --filter-shadow1: rgba(0, 0, 0, 0.08);
-  --filter-shadow2: rgba(0, 0, 0, 0.12);
+  --team-box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  --filter-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  --portfolio-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  
 }
 
 /*=== General === */
@@ -164,7 +163,7 @@ body {
   padding-bottom: 188px;
   text-align: center;
   background-color: var(--dark-brand);
-  background-image: var(--hero-background), url(../images/office.jpg);
+  background-image: var(--hero-gradient), url(../images/office.jpg);
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
@@ -258,8 +257,7 @@ body {
   flex-basis: calc((100% - 72) / 4);
   border-radius: 0px 0px 4px 4px;
   background-color: var(--white-background);
-  box-shadow: 0px 1px 6px var(--team-box-shadows),
-    0px 1px 1px var(--team-box-shadow), 0px 2px 1px var(--team-box-shadows);
+  box-shadow: var(--team-box-shadow);
 }
 .team-info {
   padding: 32px 16px;
@@ -281,7 +279,8 @@ body {
   height: 16px;
   fill: currentColor;
 }
-.team-sosial:is(:hover, :focus) {
+.team-sosial:hover,
+.team-sosial:focus {
   background-color: var(--pressed-state);
 }
 
@@ -308,7 +307,8 @@ body {
   border-radius: 4px;
   color: var(--subtle-text);
 }
-.customers-link:is(:hover,:focus) {
+.customers-link:hover,
+.customers-link:focus {
   color: var(--pressed-state);
   border: 1px solid var(--pressed-state);
 }
@@ -347,6 +347,8 @@ body {
   border: 1px solid transparent;
   color: var(--white-background);
   background-color: var(--pressed-state);
+  box-shadow: var(--filter-shadow);
+
 }
 .portfolio-list {
   display: flex;
@@ -355,6 +357,10 @@ body {
 }
 .portfolio-item {
   flex-basis: calc((100% - 48px) / 3);
+}
+.portfolio-item:hover,
+.portfolio-item:focus {
+  box-shadow: var(--portfolio-shadow);
 }
 .portfolio-info {
   padding: 32px 16px;
@@ -406,6 +412,7 @@ body {
   height: 24px;
   fill: currentColor;
 }
-.footer-social:is(:hover, :focus) {
+.footer-social:hover,
+.footer-social:focus {
   background-color: var(--footer-social-hover);
 }
